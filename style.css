@@ -26,3 +26,30 @@ body {
 .lastTiles {
     clear: left;
 }
+
+#controlPanel {
+    float: left;
+    width: 15%;
+    margin: auto;
+    align-content: center;
+    top: 10px;
+    margin-left: 5%;
+    border: 1px solid black;
+}
+
+#gridNumber {
+    display: block;
+}
+
+#colorPanel {
+    float: right;
+    align-content: center;
+    margin-right: 5%;
+    width: 15%;
+    border: 1px solid black;
+}
+
+.colorButtons {
+    width: 50px;
+    height: 30px;
+}
