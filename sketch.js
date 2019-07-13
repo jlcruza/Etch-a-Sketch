@@ -3,11 +3,7 @@ let sqr = parentDiv.offsetWidth;
 parentDiv.style.height = sqr + 'px';
 parentDiv.style.width = sqr + 'px';
 
-let amount = 16.0;
-let size = ((sqr / amount)) + 'px';
 let color = 'Gray';
-
-const amtText = document.querySelector('#gridNumber');
 
 const newBtn = document.querySelector('#newButton');
 newBtn.addEventListener('click', createPanel);
@@ -47,7 +43,6 @@ const random = document.querySelector('#randomButton');
 random.style.backgroundColor = '#fffffff';
 random.addEventListener('click', setColor);
 
-
 createPanel();
 
 function paintDiv(e) {
@@ -60,9 +55,24 @@ function setColor(e) {
 
 function createPanel() {
 
-    if (!isNaN(amtText.textContent)) {
+    let amount = 16.0;
+    while(parentDiv.firstChild){
+        parentDiv.removeChild(parentDiv.firstChild);
+    }
+
+    amtText = document.getElementById('gridNumber').value;
+
+    if(amtText == ''){
+        amtText = 16
+    }
+    else if (!isNaN(amtText)) {
+        amount = Number(amtText);
+    }
+    else{
         amount = 16;
     }
+
+    let size = ((sqr / amount) - 2) + 'px';
 
     for (let i = 0; i < amount; i++) {
         const div = document.createElement('div');
